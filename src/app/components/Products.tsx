@@ -22,7 +22,8 @@ export default function Products() {
   
     if (updatedProducts[index] > 0) {
       const product = products[index];
-      const existingCartItemIndex = cartList.findIndex((item) => item.product === product);
+      const existingCartItemIndex = cartList.findIndex(
+        (item) => item.product === product);
   
       if (existingCartItemIndex !== -1) {
         const updatedCartList = [...cartList];
@@ -42,7 +43,8 @@ export default function Products() {
 
   const subToProduct = (index: number) => {
     const product = products[index];
-    const existingCartItemIndex = cartList.findIndex((item) => item.product === product);
+    const existingCartItemIndex = cartList.findIndex(
+      (item) => item.product === product);
 
     const updatedProducts = [...countProducts];
     if (updatedProducts[index] == 0) {
@@ -52,12 +54,14 @@ export default function Products() {
 
       if (existingCartItemIndex !== -1) {
         const updatedCartList = [...cartList];
-        updatedCartList[existingCartItemIndex].count = updatedProducts[index];
+        updatedCartList[existingCartItemIndex].count = 
+          updatedProducts[index];
         setCartList(updatedCartList);
       }
 
       if (cartList[existingCartItemIndex].count === 0) {
-        const newCartList = cartList.filter((item) => item.count > 0);
+        const newCartList = cartList.filter(
+          (item) => item.count > 0);
         setCartList(newCartList);
       }
     }
@@ -65,11 +69,12 @@ export default function Products() {
   }
 
   return (
-    <section className='w-full'>
-      <ul className='m-auto max-w-6xl grid grid-cols-4 gap-5 p-10'>
+    <section className='w-full flex justify-center '>
+      <ul className='max-w-7xl flex flex-wrap p-10 mb-10 pt-0 lg:p-0 sm:p-0 justify-center gap-5'>
         {products.map((product: Product, index: number) => (
           <li
-            className='w-full h-96 flex flex-col bg-white gap-2'
+            className='h-96 flex flex-col bg-white gap-2
+              w-full xl:w-1/5 lg:w-1/4 l md:w-1/3 sm:w-1/2 xs-w-full border border-gray-400/25 rou'
             key={index || null}>
             <span className='w-full h-60 bg-white flex justify-center items-center rounded-md'>
               <Image src={product.image} alt={product.name} width={100} height={100} className='p-5' />
